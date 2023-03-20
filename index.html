@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist | Niyosh</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 50px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin-top: 0;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    p {
+      margin-bottom: 1.5em;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #444;
+      color: #fff;
+    }
+    input[type=text], input[type=email], textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #444;
+      color: #fff;
+      margin-bottom: 1.5em;
+    }
+    input[type=submit] {
+      display: block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    input[type=submit]:hover {
+      background-color: #444;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Checklist</h1>
+    <p>The SWAT checklist is for ethical hackers and developers</p>
+    
+    <form>
+    <select id="dropdown" name="dropdown">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    </select>
+    </form>
+    <div id="data-container"></div>
+
+    <script>
+  var dropdown = document.getElementById("dropdown");
+  dropdown.addEventListener("change", function() {
+    var selectedValue = dropdown.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "getData.php?option=" + selectedValue, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        document.getElementById("data-container").innerHTML = xhr.responseText;
+      }
+    }
+    xhr.send();
+  });
+</script>
+
+  </div>
+</body>
+</html>
