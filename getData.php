@@ -1,10 +1,8 @@
 <?php
   $selectedOption = $_GET["option"];
 
-  // Query the database or perform any other data retrieval based on the selected option
-  // For this example, just return a simple message
   switch ($selectedOption) {
-    case "option1":
+    case "option56":
       $data = "<div>
   <ol>
     <li>Identify all input fields:</li>
